@@ -1,0 +1,77 @@
+/* Skeleton.css */
+.skeleton-container {
+    width: 90%;
+    max-width: 500px;
+    padding: 8px;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    border: 1px solid #333;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .skeleton-heading {
+    height: 40px;
+    margin-bottom: 20px;
+    background: linear-gradient(90deg, #2c2c2c, #3d3d3d, #2c2c2c);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 4px;
+  }
+  
+  .skeleton-text {
+    height: 16px;
+    margin-bottom: 12px;
+    background: linear-gradient(90deg, #2c2c2c, #3d3d3d, #2c2c2c);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 4px;
+  }
+  /* You can add this to your Skeleton.css if not already defined */
+.skeleton-card {
+  /* Base styles for skeleton cards */
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+  .skeleton-divider {
+    height: 1px;
+    margin: 20px 0;
+    background: linear-gradient(90deg, #2c2c2c, #3d3d3d, #2c2c2c);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+  
+  .skeleton-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .skeleton-button {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(90deg, #2c2c2c, #3d3d3d, #2c2c2c);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 50%;
+  }
+  
+  .skeleton-input {
+    height: 40px;
+    margin-bottom: 16px;
+    background: linear-gradient(90deg, #2c2c2c, #3d3d3d, #2c2c2c);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 4px;
+  }
+  
+  @keyframes shimmer {
+    0% {
+      background-position: -100% 0;
+    }
+    100% {
+      background-position: 100% 0;
+    }
+  }
