@@ -1,49 +1,45 @@
 // components/Navbar.jsx
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { FaSignOutAlt, FaAngleDown } from "react-icons/fa"; // Removed FaUserAlt since we'll display initials instead
+import { FaSignOutAlt, FaAngleDown } from "react-icons/fa";
 import { AuthContext } from "../../contexts/AuthContext";
 import Adas from "../assets/ADAS.png";
-// Assets
 import { close, logo, menu } from "../assets";
 
 const Navbar = () => {
   const [active, setActive] = useState("Home");
   const [toggle, setToggle] = useState(false);
-  // We'll use separate state for features dropdown in desktop and mobile menus
   const [featuresDropdownOpen, setFeaturesDropdownOpen] = useState(false);
   const { user, logout } = useContext(AuthContext);
 
-  // Navigation links
   const navLinks = [
     { id: "home", title: "Home", path: "/" },
     { id: "about", title: "About", path: "/about" },
-
     { id: "events", title: "Discover Events", path: "/events" },
   ];
 
-  // Helper to get user initials (assumes displayName is available; otherwise falls back to email)
   const getInitials = () => {
     if (user && user.displayName) {
       const names = user.displayName.split(" ");
       return (names[0][0] + (names[1] ? names[1][0] : "")).toUpperCase();
     } else if (user && user.email) {
-      // Fallback: take first two letters of email (this may need adjustment if you want different logic)
       return user.email.slice(0, 2).toUpperCase();
     }
     return "";
   };
 
-  // Authentication links for desktop and mobile
   const authLinks = user ? (
     <>
       <li className="flex items-center gap-2 font-medium cursor-pointer text-[16px] mx-2">
-        <div
-          className="w-8 h-8 flex items-center my-3 justify-center rounded-full"
-          style={{ backgroundColor: "#5ce1e6", color: "white" }}
-        >
-          {getInitials()}
-        </div>
+        {/* Wrapped initials div in Link to navigate to "/profile" */}
+        <Link to="/profile">
+          <div
+            className="w-8 h-8 flex items-center my-3 justify-center rounded-full"
+            style={{ backgroundColor: "#5ce1e6", color: "white" }}
+          >
+            {getInitials()}
+          </div>
+        </Link>
       </li>
       <li
         className="font-medium cursor-pointer text-[16px] mr-8 text-red-500 mx-2"
@@ -68,14 +64,12 @@ const Navbar = () => {
       className="w-full flex py-6 items-center navbar border-b border-gray-200 relative"
       style={{ borderBottom: "1px solid #ffffff20", zIndex: 100 }}
     >
-      {/* Left: Logo */}
       <div className="flex items-center flex-1">
         <Link to="/">
           <img src={Adas} alt="logo" className="w-[124px] mx-10 h-[32px]" />
         </Link>
       </div>
 
-      {/* Center: Navigation Links for Desktop */}
       <ul className="list-none hidden sm:flex flex-1 justify-center items-center">
         <div className="flex justify-between w-full max-w-[600px]">
           {navLinks.map((nav) => (
@@ -86,12 +80,10 @@ const Navbar = () => {
               }`}
               onClick={() => {
                 setActive(nav.title);
-                // For "features", toggle dropdown on click instead of on hover
                 if (nav.id === "features") {
                   setFeaturesDropdownOpen(!featuresDropdownOpen);
                 }
               }}
-              // For non-features nav links, no hover dropdown is used
             >
               <Link to={nav.path} className="flex items-center">
                 {nav.title}
@@ -120,12 +112,10 @@ const Navbar = () => {
         </div>
       </ul>
 
-      {/* Right: Authentication Links for Desktop */}
       <ul className="list-none hidden sm:flex flex-1 justify-end items-center gap-6">
         {authLinks}
       </ul>
 
-      {/* Mobile Navigation Menu */}
       <div className="sm:hidden flex flex-1 justify-end items-center relative">
         <img
           src={toggle ? close : menu}
@@ -134,7 +124,6 @@ const Navbar = () => {
           onClick={() => setToggle(!toggle)}
           style={{ zIndex: 200 }}
         />
-        {/* Mobile Sidebar */}
         <div
           className={`${
             !toggle ? "hidden" : "flex"
