@@ -24,6 +24,7 @@ import TicketPurchaseForm from "./components/TicketPurchaseForm";
 import TicketVerification from "./components/TicketVerification";
 import SignUp from "./components/SignUp";
 import { ThemeProvider } from "../contexts/ThemeContext";
+import ProfilePage from "../pages/ProfilePage";
 
 const App = () => (
   <AuthProvider>
@@ -91,6 +92,7 @@ const App = () => (
           <Route path="/payment-setup" element={<PaymentSetup />} />
           <Route path="/signup" element={<SignUp />} />
           <Route element={<ProtectedRoute />}></Route>
+          <Route path="/profile" element={<ProfilePage />} />
         </Routes>
       </Router>
     </ThemeProvider>
