@@ -1,0 +1,97 @@
+/* Global Theme Styles */
+:root {
+    --bg-dark: #121212;
+    --bg-light: #ffffff;
+    --text-dark: #e0e0e0;
+    --text-light: #222222;
+    --primary-green: #00ff7f;
+    --primary-purple: #a020f0;
+    --border-radius: 8px;
+    --transition: 0.3s ease-in-out;
+  }
+  
+  body {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+    font-family: Arial, sans-serif;
+    transition: var(--transition);
+  }
+  
+  /* Light Mode */
+  .light-mode {
+    background-color: var(--bg-light);
+    color: var(--text-light);
+  }
+  
+  /* Buttons */
+  button {
+    background: linear-gradient(135deg, var(--primary-green), var(--primary-purple));
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  /* Cards */
+  .card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: var(--border-radius);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: var(--transition);
+  }
+  
+  .light-mode .card {
+    background: rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Search Bar */
+  .search-bar {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    border: 1px solid var(--primary-green);
+    border-radius: var(--border-radius);
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-dark);
+    transition: var(--transition);
+  }
+  
+  .light-mode .search-bar {
+    background: rgba(0, 0, 0, 0.05);
+    color: var(--text-light);
+  }
+  
+  /* Community Posts */
+  .post {
+    border-left: 5px solid var(--primary-purple);
+    padding: 15px;
+    margin: 10px 0;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+  }
+  
+  .light-mode .post {
+    background: rgba(0, 0, 0, 0.05);
+    border-left: 5px solid var(--primary-green);
+  }
+  
+  /* Admin Panel */
+  .admin-controls {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--primary-purple);
+  }
+  
+  .light-mode .admin-controls {
+    background: rgba(0, 0, 0, 0.05);
+  }
+  
