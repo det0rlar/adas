@@ -23,5 +23,11 @@ dist-ssr
 *.sln
 *.sw?
 
+
+
 # vscode
 .vscode
+
+
+# Environment variables
+.env.local

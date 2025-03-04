@@ -156,16 +156,6 @@ const ProfilePage = () => {
               >
                 Hosted Events
               </button>
-              <button
-                onClick={() => setSelectedTab('favorites')}
-                className={`py-2 px-4 font-medium transition-colors ${
-                  selectedTab === 'favorites'
-                    ? 'border-b-2 border-blue-500 text-blue-500'
-                    : 'text-gray-400 hover:text-white'
-                }`}
-              >
-                Favorites
-              </button>
             </nav>
           </div>
 
@@ -205,21 +195,6 @@ const ProfilePage = () => {
                 ))}
               </div>
             )}
-            {/* {selectedTab === 'favorites' && (
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {[1, 2, 3].map((item) => (
-                  <div
-                    key={item}
-                    className="bg-gray-800 rounded-xl p-4 shadow-lg transform hover:-translate-y-1 transition-transform"
-                  >
-                    <div className="flex items-center justify-center h-24">
-                      <FaHeart className="text-red-500 text-3xl" />
-                    </div>
-                    <p className="text-center mt-2 text-gray-400">Favorite {item}</p>
-                  </div>
-                ))}
-              </div>
-            )} */}
           </div>
         </div>
       </div>
