@@ -15,12 +15,12 @@ const Hero = () => {
           className={`
             relative z-10 flex-1 w-full
             flex flex-col items-center md:items-start
-            px-6 sm:px-16 p-6 h-64
+            px-6 sm:px-16 p-16 h-64 mt-14 m-14
             bg-[radial-gradient(circle_at_left,_#F5E8FF,_#fff_70%)]
           `}
         >
           {/* Title */}
-          <div className="w-full mt-4">
+          <div className="w-full mb-6 mt-4">
             <h1
               className="
                 font-poppins font-bold
@@ -29,7 +29,7 @@ const Hero = () => {
                 text-black
               "
             >
-              Welcome to <br className="sm:block hidden" />
+              Welcome to
               <span
                 className="
                   inline-block
@@ -39,23 +39,23 @@ const Hero = () => {
               >
                 ADAS
               </span>
-              .
             </h1>
           </div>
 
           {/* Description */}
           <p
             className="
-              max-w-[30rem]
+              max-w-[35rem]
               mt-[1.5rem]
               text-black font-[400]
-              text-base md:text-lg
+               md:text-lg
+              text-lg
             "
           >
-            ADAS is the go-to platform for hosting, managing, and promoting events
-            of all kinds. Whether it's a corporate conference or a community
-            gathering, ADAS provides tools you would need to make your event
-            unforgettable.
+            ADAS is the go-to platform for hosting, managing, and promoting
+            events of all kinds. Whether it's a corporate conference or a
+            community gathering, ADAS provides tools you would need to make your
+            event unforgettable.
           </p>
 
           {/* Button */}
@@ -67,7 +67,7 @@ const Hero = () => {
               rounded-lg shadow-lg
               hover:opacity-90
               transition duration-300
-              mt-6
+              mt-16
             "
           >
             Host Your Next Event Here
