@@ -1,43 +1,54 @@
 import React from "react";
 import styles from "../style";
 import Robot from "../assets/robots.png";
+// Import your orange arc image
+import OrangeArc from "../assets/Line 3.png";
 
 const Hero = () => {
   return (
     <section
       id="home"
-      className={`relative h-screen overflow-hidden bg-white ${styles.paddingY}`}
+      // Use a radial gradient for the entire hero background
+      className={`
+        relative min-h-screen overflow-x-hidden
+        bg-[radial-gradient(circle_at_left,_#F5E8FF_40%,_#fff_70%)]
+        ${styles.paddingY}
+      `}
     >
-      {/* Container to center content and bottom border */}
-      <div className=" mx-auto px-4 flex flex-col md:flex-row items-center md:items-start text-center md:text-left h-full">
-        {/* Left Content (Text with radial gradient) */}
-        <div
-          className={`
-            relative z-10 flex-1 w-full
-            flex flex-col items-center md:items-start
-            px-6 sm:px-16 p-16 h-64 mt-14 m-14
-            bg-[radial-gradient(circle_at_left,_#F5E8FF,_#fff_70%)]
-          `}
-        >
+      {/* Main container (flex for desktop, stacked for mobile) */}
+      <div className="mx-auto px-4 flex flex-col md:flex-row items-start text-left h-full">
+        {/* Left Content */}
+        <div className="relative z-10 flex-1 w-full flex flex-col px-6 sm:px-16 py-8">
           {/* Title */}
           <div className="w-full mb-6 mt-4">
             <h1
               className="
                 font-poppins font-bold
-                text-[1.6rem] md:text-[4rem]
-                leading-[2rem] md:leading-[4.5rem]
+                text-[2rem]  /* Larger on mobile */
+                md:text-[4rem]
+                leading-[2.2rem]
+                md:leading-[4.5rem]
                 text-black
+                lg:mt-24
               "
             >
-              Welcome to
-              <span
-                className="
-                  inline-block
-                  bg-gradient-to-r from-[#6A0DAD] via-[#6E3995] to-[#9E0DAD]
-                  bg-clip-text text-transparent
-                "
-              >
-                ADAS
+              Welcome to{" "}
+              <span className="relative inline-block">
+                {/* Gradient text */}
+                <span
+                  className="
+                    bg-gradient-to-r from-[#6A0DAD] via-[#6E3995] to-[#9E0DAD]
+                    bg-clip-text text-transparent
+                  "
+                >
+                  ADAS
+                </span>
+                {/* Orange Arc image under ADAS */}
+                <img
+                  src={OrangeArc}
+                  alt="Orange arc"
+                  className="absolute w-[100px] left-1/2 transform -translate-x-1/2 bottom-[-8px]"
+                />
               </span>
             </h1>
           </div>
@@ -48,8 +59,7 @@ const Hero = () => {
               max-w-[35rem]
               mt-[1.5rem]
               text-black font-[400]
-               md:text-lg
-              text-lg
+              text-lg md:text-xl
             "
           >
             ADAS is the go-to platform for hosting, managing, and promoting
@@ -63,11 +73,11 @@ const Hero = () => {
             className="
               bg-gradient-to-r from-[#6A0DAD] via-[#6E3995] to-[#9E0DAD]
               text-white font-bold
-              px-6 py-3
+             py-3
               rounded-lg shadow-lg
               hover:opacity-90
               transition duration-300
-              mt-16
+              mt-10
             "
           >
             Host Your Next Event Here
@@ -76,11 +86,11 @@ const Hero = () => {
 
         {/* Right Content (Image) */}
         <div
-          className={`
+          className="
             relative z-10 flex-1
             flex justify-center items-center
             md:my-0 my-10
-          `}
+          "
         >
           <img
             src={Robot}

@@ -126,13 +126,21 @@ const Navbar = () => {
 
       {/* Mobile Hamburger and Full-Screen Menu */}
       <div className="sm:hidden flex flex-1 justify-end items-center text-black relative">
-        <img
-          src={toggle ? close : menu}
-          alt="menu"
-          className="w-[28px] text-black h-[28px] mx-4 object-contain cursor-pointer"
-          onClick={() => setToggle(!toggle)}
+        {/* Wrapper for the hamburger icon with light-purple background */}
+        <div
+          className="bg-[#f5e8ff] p-2 rounded-md mx-4 cursor-pointer"
           style={{ zIndex: 200 }}
-        />
+          onClick={() => setToggle(!toggle)}
+        >
+          <img
+            src={toggle ? close : menu}
+            alt="menu"
+            /* If your icons are white lines, use "invert" to make them black */
+            className="w-[28px] h-[28px] object-contain invert"
+          />
+        </div>
+
+        {/* Fullscreen overlay menu */}
         <div
           className={`${
             !toggle ? "hidden" : "flex"
