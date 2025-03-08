@@ -136,9 +136,9 @@ const Login = () => {
       </div>
     );
   }
-
+  //bg-gradient-to-br from-gray-900 to-black
   return (
-    <div className="relative flex items-center justify-center w-full h-screen bg-gradient-to-br from-gray-900 to-black">
+    <div className="relative bg-white flex items-center justify-center w-full h-screen ">
       {/* Back Button */}
       <div className="absolute top-4 left-4 flex gap-4">
         <button
@@ -162,11 +162,12 @@ const Login = () => {
       )}
 
       {/* Main Login Form */}
-      <div className="w-[90%] max-w-[500px] p-8 bg-gray-800 rounded-lg border border-gray-700 shadow-lg">
-        <h2 className="text-3xl font-bold text-purple-400 text-center mb-6">
+      <div className="w-[90%] max-w-[500px] p-8 bg-white rounded-lg border shadow-lg">
+        <h2 className="text-3xl font-bold text-black text-center mb-6">
           Welcome Back
         </h2>
-        <p className="text-gray-400 text-center mb-6">Sign in to continue</p>
+        <p className="text-gray-400 text-center mb-6"> <span className="bg-gradient-to-r from-[#6A0DAD] via-[#6E3995] to-[#9E0DAD]
+                    bg-clip-text text-transparent">Sign in</span>  to continue</p>
 
         {/* Social Login Buttons */}
         <div className="flex items-center mb-4">
@@ -177,13 +178,13 @@ const Login = () => {
         <div className="flex justify-center gap-4 mb-6">
           <button
             onClick={handleGoogleLogin}
-            className="p-3 rounded-full bg-gray-700 hover:bg-gray-600 text-white"
+            className="p-3 rounded-full bg-gradient-to-r from-[#6A0DAD] via-[#6E3995] to-[#9E0DAD] text-white"
           >
             <FaGoogle size={24} />
           </button>
           <button
             onClick={handleAppleLogin}
-            className="p-3 rounded-full bg-gray-700 hover:bg-gray-600 text-white"
+            className="p-3 rounded-full bg-gradient-to-r from-[#6A0DAD] via-[#6E3995] to-[#9E0DAD] text-white"
           >
             <FaApple size={24} />
           </button>
@@ -191,23 +192,23 @@ const Login = () => {
 
         {/* Email and Password Inputs */}
         <div className="relative mb-4">
-          <FaEnvelope className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+          <FaEnvelope className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#9E0DAD]" />
           <input
             type="email"
             placeholder="Enter your email..."
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full p-3 pl-10 rounded-lg bg-gray-900 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="w-full p-3 pl-10 rounded-lg bg-white text-white border border-[#9E0DAD] focus:outline-none focus:ring-2 focus:ring-purple-500"
           />
         </div>
         <div className="relative mb-4">
-          <FaLock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+          <FaLock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-[#9E0DAD]" />
           <input
             type="password"
             placeholder="Enter your password..."
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full p-3 pl-10 rounded-lg bg-gray-900 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-purple-500"
+            className="w-full p-3 pl-10 rounded-lg bg-white text-white border  border-[#9E0DAD] focus:outline-none focus:ring-2 focus:ring-purple-500"
           />
         </div>
 
@@ -216,11 +217,13 @@ const Login = () => {
           <input type="checkbox" id="consent" className="mr-2" />
           <label htmlFor="consent">
             I agree to the{" "}
-            <a href="/terms" className="text-purple-400">
+            <a href="/terms" className="bg-gradient-to-r from-[#6A0DAD] via-[#6E3995] to-[#9E0DAD]
+                    bg-clip-text text-transparent">
               Terms of Use
             </a>{" "}
             and{" "}
-            <a href="/privacy" className="text-purple-400">
+            <a href="/privacy" className="bg-gradient-to-r from-[#6A0DAD] via-[#6E3995] to-[#9E0DAD]
+                    bg-clip-text text-transparent">
               Privacy Policy
             </a>
             .
@@ -230,7 +233,7 @@ const Login = () => {
         {/* Login Button */}
         <button
           onClick={handleEmailPasswordLogin}
-          className="w-full py-3 text-white bg-purple-600 hover:bg-purple-500 rounded-lg font-semibold text-lg"
+          className="w-full py-3 text-white bg-gradient-to-r from-[#6A0DAD] via-[#6E3995] to-[#9E0DAD] hover:bg-purple-500 rounded-lg font-semibold text-lg"
         >
           Sign In
         </button>
@@ -240,7 +243,8 @@ const Login = () => {
           Don’t have an account?{" "}
           <a
             href="/signup"
-            className="text-purple-400"
+            className="bg-gradient-to-r from-[#6A0DAD] via-[#6E3995] to-[#9E0DAD]
+                    bg-clip-text text-transparent"
             onClick={(e) => {
               e.preventDefault();
               navigate("/signup");
@@ -253,7 +257,7 @@ const Login = () => {
 
       {/* Success Message */}
       {showSuccess && (
-        <div className="absolute top-6 left-1/2 transform -translate-x-1/2 bg-black text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-2">
+        <div className="absolute top-6 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white px-6 py-3 rounded-lg shadow-lg flex items-center gap-2">
           <FaCheckCircle className="text-green-500" />
           Login successful!
         </div>
