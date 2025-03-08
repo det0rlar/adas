@@ -4,7 +4,7 @@ const styles = {
   heading2:
     "font-poppins font-semibold xs:text-[3rem] text-[2.5rem] text-white xs:leading-[3.8rem] leading-[3.1rem] w-full",
   paragraph:
-    "font-poppins font-normal text-dimWhite text-[1.125rem] leading-[1.925rem]",
+    "font-poppins font-[400] text-black text-[26px] leading-[1.925rem]",
 
   flexCenter: "flex justify-center items-center",
   flexStart: "flex justify-center items-start",

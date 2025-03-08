@@ -31,7 +31,6 @@ const Navbar = () => {
   const authLinks = user ? (
     <>
       <li className="flex items-center gap-2 font-medium cursor-pointer text-[16px] mx-2">
-        {/* Wrapped initials div in Link to navigate to "/profile" */}
         <Link to="/profile">
           <div
             className="w-8 h-8 flex items-center my-3 justify-center rounded-full"
@@ -50,11 +49,21 @@ const Navbar = () => {
     </>
   ) : (
     <>
-      <li className="font-bold cursor-pointer text-[16px] text-blue-500 mx-2 mr-6">
-        <Link to="/login">Login</Link>
+      <li>
+        <Link
+          to="/login"
+          className="font-[600] cursor-pointer text-[18px] text-white mx-2 mr-6 px-4 py-2 rounded-lg bg-gradient-to-r from-[#6A0DAD] via-[#6E3995] to-[#9E0DAD] hover:opacity-90 transition duration-300"
+        >
+          Login
+        </Link>
       </li>
-      <li className="font-bold cursor-pointer text-[16px] text-blue-500 mx-2 mr-6">
-        <Link to="/signup">Sign Up</Link>
+      <li>
+        <Link
+          to="/signup"
+          className="font-[600] cursor-pointer text-[18px] text-white mx-2 mr-6 px-4 py-2 rounded-lg bg-gradient-to-r from-[#6A0DAD] via-[#6E3995] to-[#9E0DAD] hover:opacity-90 transition duration-300"
+        >
+          Sign Up
+        </Link>
       </li>
     </>
   );
@@ -70,14 +79,13 @@ const Navbar = () => {
         </Link>
       </div>
 
+      {/* Desktop Nav Links */}
       <ul className="list-none hidden sm:flex flex-1 justify-center items-center">
         <div className="flex justify-between w-full max-w-[600px]">
           {navLinks.map((nav) => (
             <li
               key={nav.id}
-              className={`relative font-normal cursor-pointer text-[16px] ${
-                active === nav.title ? "text-white" : "text-dimWhite"
-              }`}
+              className="relative font-normal cursor-pointer font-[500] text-[16px] text-black"
               onClick={() => {
                 setActive(nav.title);
                 if (nav.id === "features") {
@@ -88,7 +96,7 @@ const Navbar = () => {
               <Link to={nav.path} className="flex items-center">
                 {nav.title}
                 {nav.subLinks && (
-                  <FaAngleDown className="ml-2 mb-3 text-sm text-dimWhite" />
+                  <FaAngleDown className="ml-2 mb-3 text-sm text-black" />
                 )}
               </Link>
               {nav.subLinks && nav.id === "features" && (
@@ -116,51 +124,39 @@ const Navbar = () => {
         {authLinks}
       </ul>
 
-      <div className="sm:hidden flex flex-1 justify-end items-center relative">
+      {/* Mobile Hamburger and Full-Screen Menu */}
+      <div className="sm:hidden flex flex-1 justify-end items-center text-black relative">
         <img
           src={toggle ? close : menu}
           alt="menu"
-          className="w-[28px] h-[28px] mx-4 object-contain cursor-pointer"
+          className="w-[28px] text-black h-[28px] mx-4 object-contain cursor-pointer"
           onClick={() => setToggle(!toggle)}
           style={{ zIndex: 200 }}
         />
         <div
           className={`${
             !toggle ? "hidden" : "flex"
-          } p-6 bg-black-gradient absolute top-full right-0 w-full max-w-[300px] mx-4 my-2 rounded-xl sidebar`}
-          style={{ zIndex: 9999 }}
+          } fixed inset-0 p-6 bg-white flex flex-col items-center justify-center z-50`}
         >
-          <ul className="list-none flex flex-col">
-            {navLinks.map((nav, index) => (
+          <ul className="list-none flex flex-col items-center">
+            {navLinks.map((nav) => (
               <li
                 key={nav.id}
-                className={`relative font-medium cursor-pointer text-[16px] ${
-                  active === nav.title ? "text-white" : "text-dimWhite"
-                } ${index === navLinks.length - 1 ? "mb-0" : "mb-4"}`}
+                className="relative font-medium cursor-pointer text-[16px] text-black mb-4"
                 onClick={() => {
                   setActive(nav.title);
                   if (nav.id === "features") {
                     setFeaturesDropdownOpen(!featuresDropdownOpen);
                   }
+                  setToggle(false); // close menu after selection
                 }}
               >
-                <div className="flex items-center">
-                  <Link to={nav.path} className="flex items-center">
-                    {nav.title}
-                    {nav.subLinks && (
-                      <FaAngleDown
-                        className="ml-2 text-sm text-dimWhite"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          e.stopPropagation();
-                          if (nav.id === "features") {
-                            setFeaturesDropdownOpen(!featuresDropdownOpen);
-                          }
-                        }}
-                      />
-                    )}
-                  </Link>
-                </div>
+                <Link to={nav.path} className="flex items-center">
+                  {nav.title}
+                  {nav.subLinks && (
+                    <FaAngleDown className="ml-2 text-sm text-black" />
+                  )}
+                </Link>
                 {nav.subLinks &&
                   nav.id === "features" &&
                   featuresDropdownOpen && (
