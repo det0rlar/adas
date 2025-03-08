@@ -25,6 +25,7 @@ import TicketVerification from "./components/TicketVerification";
 import SignUp from "./components/SignUp";
 import { ThemeProvider } from "../contexts/ThemeContext";
 import ProfilePage from "../pages/ProfilePage";
+import QAChatRoomPage from "../pages/QAChatRoomPage";
 
 const App = () => (
   <AuthProvider>
@@ -54,6 +55,7 @@ const App = () => (
           <Route path="/event-page/:eventId" element={<EventPage />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/register-page" element={<RegisterPage />} />
+          <Route path="/events/:eventId/chat" element={<QAChatRoomPage />} />
           <Route
             path="/events/:eventId/payment-details"
             element={<PaymentDetails />}

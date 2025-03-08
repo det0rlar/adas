@@ -526,17 +526,18 @@ const CreateEventForm = () => {
           {/* APPEARANCE STEP */}
           {activeStep === "appearance" && (
             <div className="section space-y-4">
-              {/* Upload Image Section */}
+             {/* Upload Image Section */}
               <div
-                className="w-full h-60 flex flex-col items-center justify-center border-4 border-dotted border-gray-400 mb-4 cursor-pointer"
+                className="w-full h-60 relative border-4 border-dotted border-gray-400 mb-4 cursor-pointer"
                 onClick={() => document.getElementById("fileInput").click()}
               >
                 {imageUrl ? (
-                  <div className="relative w-full h-full flex items-center justify-center">
+                  <div className="relative w-full h-full">
+                    {/* Make the image fill the container */}
                     <img
                       src={imageUrl}
                       alt="Selected Event"
-                      className="w-72 h-auto rounded-md border-b"
+                      className="w-full h-full object-cover"
                     />
                     <button
                       type="button"
@@ -551,7 +552,7 @@ const CreateEventForm = () => {
                     </button>
                   </div>
                 ) : (
-                  <div className="flex flex-col items-center">
+                  <div className="flex flex-col items-center justify-center h-full">
                     <div className="bg-purple-200 rounded-full p-5 transition-transform duration-200 hover:scale-110">
                       <FiUpload className="text-purple-500 text-3xl mb-1" />
                     </div>
@@ -567,6 +568,7 @@ const CreateEventForm = () => {
                   onChange={handleImageUpload}
                 />
               </div>
+
 
               {/* Title */}
               <div>
